@@ -3,13 +3,14 @@ import '../styles/Todo.scss';
 function Todo({ text, removeTodo, id }) {
 	const handleClick = (e) => {
 		removeTodo(id);
-		console.log('Clicked');
 	};
 
 	return (
 		<>
 			<div className="todo-card">
-				<span className="todo-card_text">{text}</span>
+				<span className="todo-card_text">
+					<p>{text}</p>
+				</span>
 				<button onClick={handleClick} className="todo-card_x">
 					X
 				</button>

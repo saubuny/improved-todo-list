@@ -18,7 +18,9 @@ function TodoForm({ addTodo }) {
 		<>
 			<form onSubmit={handleSubmit} className="todo-form">
 				<div>
-					<label htmlFor="todo_form_text">Add Todo</label>
+					<label className="todo-form_label" htmlFor="todo_form_text">
+						Add Todo
+					</label>
 				</div>
 				<div>
 					<input

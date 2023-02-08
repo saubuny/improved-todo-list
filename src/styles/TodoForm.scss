@@ -1,3 +1,32 @@
 .todo-form {
 	margin: 2rem;
 }
+
+.todo-form_label {
+	font-size: 1.25rem;
+}
+
+.todo-form_text {
+	border: none;
+	padding: 0.4rem;
+	background-color: $light;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.todo-form_submit-btn {
+	background-color: $primary;
+	border: none;
+	padding: 0.4rem;
+	color: $light;
+
+	&:hover {
+		background-color: adjust-color($color: $primary, $lightness: -5%);
+	}
+
+	&:active {
+		background-color: adjust-color($color: $primary, $lightness: -10%);
+	}
+}
