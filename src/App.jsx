@@ -1,8 +1,9 @@
 import './styles/App.scss';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import { v4 as uuidv4 } from 'uuid';
+import TodoTabs from './components/TodoTabs';
 
 function App() {
 	const [todos, setTodos] = useState([
@@ -25,6 +26,7 @@ function App() {
 		<>
 			<div className="App">
 				<TodoForm addTodo={addTodo} />
+				<TodoTabs />
 				<div className="todo-list">
 					{todos.map((todo) => (
 						<Todo removeTodo={removeTodo} id={todo.id} key={todo.id} text={todo.text} />

@@ -1,22 +1,4 @@
-.todo-form {
-	margin: 2rem;
-}
-
-.todo-form_label {
-	font-size: 1.25rem;
-}
-
-.todo-form_text {
-	border: none;
-	padding: 0.4rem;
-	background-color: $light;
-
-	&:focus {
-		outline: none;
-	}
-}
-
-.todo-form_submit-btn {
+.todo-tab {
 	background-color: $primary;
 	border: none;
 	padding: 0.4rem;
