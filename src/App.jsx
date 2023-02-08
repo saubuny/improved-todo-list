@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import { v4 as uuidv4 } from 'uuid';
@@ -9,17 +9,28 @@ function App() {
 		{ id: uuidv4(), text: 'Take out the trash' },
 		{ id: uuidv4(), text: 'Feed the dog' },
 	]);
-	const updateTodoList = (newTodoText) => {
-		setTodos(...todos, { id: uuidv4(), text: newTodoText });
+
+	const addTodo = (newTodoText) => {
+		setTodos([...todos, { id: uuidv4(), text: newTodoText }]);
 	};
+
+	const removeTodo = (id) => {
+		console.log(todos);
+		const index = todos.findIndex((obj) => obj.id === id);
+		setTodos(todos.slice(0, index).concat(todos.slice(index, todos.length)));
+	};
+
+	// useEffect(() => {
+	// 	console.log(todos);
+	// }, [todos]);
 
 	return (
 		<>
 			<div className="App">
 				<div className="todo-list">
-					<TodoForm updateTodoList={updateTodoList} />
+					<TodoForm addTodo={addTodo} />
 					{todos.map((todo) => {
-						return <Todo text={todo.text}></Todo>;
+						return <Todo removeTodo={removeTodo} id={todo.id} key={todo.id} text={todo.text} />;
 					})}
 				</div>
 			</div>

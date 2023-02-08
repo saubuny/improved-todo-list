@@ -1,8 +1,9 @@
 import '../styles/Todo.scss';
 
-function Todo({ text }) {
+function Todo({ text, removeTodo, id }) {
 	const handleClick = (e) => {
-		// ...
+		removeTodo(id);
+		console.log('Clicked');
 	};
 
 	return (

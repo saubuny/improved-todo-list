@@ -1,13 +1,13 @@
 import '../styles/TodoForm.scss';
 import { useState } from 'react';
 
-function TodoForm({ updateTodoList }) {
+function TodoForm({ addTodo }) {
 	const [todoText, setTodoText] = useState('');
 
-	// TODO: have this callback get value of input
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(e.target.value);
+		addTodo(todoText);
+		setTodoText('');
 	};
 
 	const handleChange = (e) => {
