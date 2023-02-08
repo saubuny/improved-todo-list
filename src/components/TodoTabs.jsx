@@ -1,22 +1,23 @@
 import '../styles/TodoTabs.scss';
 
-function TodoTabs() {
+function TodoTabs({ activeTab }) {
 	const handleClick = (e) => {};
+
+	const Tab = ({ tabName }) => {
+		return (
+			<button onClick={handleClick} className="todo-tab">
+				{tabName}
+			</button>
+		);
+	};
+
 	return (
 		<>
 			<div className="container">
-				<button onClick={handleClick} className="todo-tab">
-					All
-				</button>
-				<button onClick={handleClick} className="todo-tab">
-					Not Started
-				</button>
-				<button onClick={handleClick} className="todo-tab">
-					In Progress
-				</button>
-				<button onClick={handleClick} className="todo-tab">
-					Complete
-				</button>
+				<Tab tabName={'All'} />
+				<Tab tabName={'Not Started'} />
+				<Tab tabName={'In Progress'} />
+				<Tab tabName={'Complete'} />
 			</div>
 		</>
 	);

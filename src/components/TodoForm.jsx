@@ -1,12 +1,13 @@
 import '../styles/TodoForm.scss';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 function TodoForm({ addTodo }) {
 	const [todoText, setTodoText] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addTodo(todoText);
+		addTodo({ id: uuidv4(), text: todoText, status: 'Not Started' });
 		setTodoText('');
 	};
 

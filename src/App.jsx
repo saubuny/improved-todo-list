@@ -7,12 +7,19 @@ import TodoTabs from './components/TodoTabs';
 
 function App() {
 	const [todos, setTodos] = useState([
-		{ id: uuidv4(), text: 'Take out the trash' },
-		{ id: uuidv4(), text: 'Feed the dog' },
+		{ id: uuidv4(), text: 'Take out the trash', status: 'In Progress' },
+		{ id: uuidv4(), text: 'Feed the dog', status: 'Not Started' },
 	]);
 
-	const addTodo = (newTodoText) => {
-		setTodos([...todos, { id: uuidv4(), text: newTodoText }]);
+	const addTodo = (newTodo) => {
+		setTodos([...todos, newTodo]);
+	};
+
+	const modTodo = (id, status) => {
+		let newTodos = [...todos];
+		const index = todos.findIndex((todo) => todo.id === id);
+		newTodos[index].status = status;
+		setTodos(newTodos);
 	};
 
 	const removeTodo = (id) => {
@@ -29,7 +36,14 @@ function App() {
 				<TodoTabs />
 				<div className="todo-list">
 					{todos.map((todo) => (
-						<Todo removeTodo={removeTodo} id={todo.id} key={todo.id} text={todo.text} />
+						<Todo
+							modTodo={modTodo}
+							removeTodo={removeTodo}
+							status={todo.status}
+							id={todo.id}
+							key={todo.id}
+							text={todo.text}
+						/>
 					))}
 				</div>
 			</div>

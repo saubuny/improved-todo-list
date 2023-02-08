@@ -13,14 +13,29 @@
 	justify-content: center;
 }
 
-.todo-card_x {
+.todo-card_btn {
 	color: $dark;
-	background-color: $danger;
-	height: 1rem;
-	width: 1rem;
+	background-color: $light;
 	border: none;
+	padding: 0 0.2rem;
 
 	&:hover {
 		outline: 1px solid $light;
 	}
+}
+
+.todo-card_x {
+	background-color: $danger;
+}
+
+.todo-card_complete {
+	background-color: $success;
+}
+
+.todo-card_inprogress {
+	background-color: $primary;
+}
+
+.todo-card_notstarted {
+	background-color: $secondary;
 }
