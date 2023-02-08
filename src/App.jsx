@@ -15,23 +15,20 @@ function App() {
 	};
 
 	const removeTodo = (id) => {
-		console.log(todos);
-		const index = todos.findIndex((obj) => obj.id === id);
-		setTodos(todos.slice(0, index).concat(todos.slice(index, todos.length)));
+		let newTodos = [...todos];
+		const index = todos.findIndex((todo) => todo.id === id);
+		newTodos.splice(index, 1);
+		setTodos(newTodos);
 	};
-
-	// useEffect(() => {
-	// 	console.log(todos);
-	// }, [todos]);
 
 	return (
 		<>
 			<div className="App">
 				<div className="todo-list">
 					<TodoForm addTodo={addTodo} />
-					{todos.map((todo) => {
-						return <Todo removeTodo={removeTodo} id={todo.id} key={todo.id} text={todo.text} />;
-					})}
+					{todos.map((todo) => (
+						<Todo removeTodo={removeTodo} id={todo.id} key={todo.id} text={todo.text} />
+					))}
 				</div>
 			</div>
 		</>
