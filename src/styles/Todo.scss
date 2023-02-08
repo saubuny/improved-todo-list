@@ -1,0 +1,26 @@
+.todo-card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: $dark;
+	padding: 0.4rem;
+	margin: 0.2rem;
+}
+
+.todo-card_text {
+	display: flex;
+	justify-content: center;
+}
+
+.todo-card_x {
+	color: $dark;
+	background-color: $danger;
+	height: 1rem;
+	width: 1rem;
+	border: none;
+
+	&:hover {
+		outline: 1px solid $light;
+	}
+}
