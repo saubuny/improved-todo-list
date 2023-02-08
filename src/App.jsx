@@ -9,12 +9,15 @@ function App() {
 		{ id: uuidv4(), text: 'Take out the trash' },
 		{ id: uuidv4(), text: 'Feed the dog' },
 	]);
+	const updateTodoList = (newTodoText) => {
+		setTodos(...todos, { id: uuidv4(), text: newTodoText });
+	};
 
 	return (
 		<>
 			<div className="App">
 				<div className="todo-list">
-					<TodoForm />
+					<TodoForm updateTodoList={updateTodoList} />
 					{todos.map((todo) => {
 						return <Todo text={todo.text}></Todo>;
 					})}
