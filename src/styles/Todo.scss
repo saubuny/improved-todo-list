@@ -1,23 +1,30 @@
 .todo-card {
 	display: flex;
 	justify-content: space-between;
+	gap: 1rem;
 	align-items: center;
+	width: 24rem;
 
 	background-color: $dark;
-	padding: 0.4rem;
-	margin: 0.2rem;
+	padding: 0.6rem;
+	margin: 0.3rem;
+
+	span:nth-child(2) {
+		display: flex;
+		gap: 0.4rem;
+	}
 }
 
 .todo-card_text {
-	display: flex;
-	justify-content: center;
+	width: 60%;
 }
 
 .todo-card_btn {
 	color: $dark;
+	font-size: 0.8rem;
 	background-color: $light;
 	border: none;
-	padding: 0 0.2rem;
+	padding: 0 0.4rem;
 
 	&:hover {
 		outline: 1px solid $light;
@@ -26,6 +33,8 @@
 
 .todo-card_x {
 	background-color: $danger;
+	min-height: 2rem;
+	min-width: 2rem;
 }
 
 .todo-card_complete {
@@ -38,4 +47,5 @@
 
 .todo-card_notstarted {
 	background-color: $secondary;
+	flex-shrink: 0;
 }
