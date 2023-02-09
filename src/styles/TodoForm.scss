@@ -1,15 +1,22 @@
 .todo-form {
 	margin: 2rem;
+	width: 20rem;
+
+	div:nth-child(2) {
+		display: flex;
+	}
 }
 
 .todo-form_label {
-	font-size: 1.25rem;
+	font-size: 1.4rem;
 }
 
 .todo-form_text {
 	border: none;
 	padding: 0.4rem;
 	background-color: $light;
+	flex-grow: 1;
+	font-size: 0.8rem;
 
 	&:focus {
 		outline: none;
@@ -22,6 +29,7 @@
 	padding: 0.4rem;
 	color: $light;
 	margin-left: 0.4rem;
+	font-size: 0.8rem;
 
 	&:hover {
 		background-color: adjust-color($color: $primary, $lightness: -5%);

@@ -6,3 +6,11 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+.todo-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 0.4rem;
+}
