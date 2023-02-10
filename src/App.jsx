@@ -1,11 +1,12 @@
 import './styles/App.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
 import { v4 as uuidv4 } from 'uuid';
 import TodoTabs from './components/TodoTabs';
 
 function App() {
+	// Handle Todos
 	const [todos, setTodos] = useState([
 		{ id: uuidv4(), text: 'Take out the trash', status: 'In Progress' },
 		{ id: uuidv4(), text: 'Feed the dog', status: 'Not Started' },
@@ -29,11 +30,20 @@ function App() {
 		setTodos(newTodos);
 	};
 
+	// Handle Tabs
+	const [activeTab, setActiveTab] = useState('All');
+	const modActiveTab = (tabName) => {
+		setActiveTab(tabName);
+	};
+
+	// Testing
+	useEffect(() => console.log(activeTab), [activeTab]);
+
 	return (
 		<>
 			<div className="App">
 				<TodoForm addTodo={addTodo} />
-				{/* <TodoTabs /> */}
+				<TodoTabs activeTab={activeTab} modActiveTab={modActiveTab} />
 				<div className="todo-list">
 					{todos.map((todo) => (
 						<Todo

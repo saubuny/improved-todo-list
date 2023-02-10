@@ -1,11 +1,13 @@
 import '../styles/TodoTabs.scss';
 
-function TodoTabs({ activeTab }) {
-	const handleClick = (e) => {};
+function TodoTabs({ activeTab, modActiveTab }) {
+	const handleClick = (e) => {
+		modActiveTab(e.target.innerHTML);
+	};
 
-	const Tab = ({ tabName }) => {
+	const Tab = ({ tabName, active }) => {
 		return (
-			<button onClick={handleClick} className="todo-tab">
+			<button data-active={active} onClick={handleClick} className="todo-tab">
 				{tabName}
 			</button>
 		);
@@ -14,10 +16,10 @@ function TodoTabs({ activeTab }) {
 	return (
 		<>
 			<div className="container">
-				<Tab tabName={'All'} />
-				<Tab tabName={'Not Started'} />
-				<Tab tabName={'In Progress'} />
-				<Tab tabName={'Complete'} />
+				<Tab onClick={handleClick} tabName={'All'} />
+				<Tab onClick={handleClick} tabName={'Not Started'} />
+				<Tab onClick={handleClick} tabName={'In Progress'} />
+				<Tab onClick={handleClick} tabName={'Complete'} />
 			</div>
 		</>
 	);
