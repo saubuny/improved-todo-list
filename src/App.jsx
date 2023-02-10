@@ -7,10 +7,7 @@ import TodoTabs from './components/TodoTabs';
 
 function App() {
 	// Handle Todos
-	const [todos, setTodos] = useState([
-		{ id: uuidv4(), text: 'Take out the trash', status: 'In Progress' },
-		{ id: uuidv4(), text: 'Feed the dog', status: 'Not Started' },
-	]);
+	const [todos, setTodos] = useState([]);
 
 	const addTodo = (todoText) => {
 		setTodos([...todos, { id: uuidv4(), text: todoText, status: 'Not Started' }]);
@@ -44,6 +41,7 @@ function App() {
 			<div className="App">
 				<TodoForm addTodo={addTodo} />
 				<TodoTabs activeTab={activeTab} modActiveTab={modActiveTab} />
+				{todos.length === 0 && <div className={'no-todos'}>Nothing to show...</div>}
 				{/* Extract todo-list into its own component */}
 				<div className="todo-list">
 					{activeTab === 'All'

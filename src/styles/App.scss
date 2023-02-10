@@ -14,3 +14,11 @@ body {
 	align-items: center;
 	gap: 0.4rem;
 }
+
+.no-todos {
+	margin: 1rem;
+	font-size: 0.8rem;
+	text-align: center;
+	color: $secondary;
+	opacity: 50%;
+}
