@@ -2,7 +2,7 @@ import './styles/App.scss';
 import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; // REPLACE THIS !!!
 import TodoTabs from './components/TodoTabs';
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
 		{ id: uuidv4(), text: 'Feed the dog', status: 'Not Started' },
 	]);
 
-	const addTodo = (newTodo) => {
-		setTodos([...todos, newTodo]);
+	const addTodo = (todoText) => {
+		setTodos([...todos, { id: uuidv4(), text: todoText, status: 'Not Started' }]);
 	};
 
 	const modTodo = (id, status) => {
@@ -44,17 +44,31 @@ function App() {
 			<div className="App">
 				<TodoForm addTodo={addTodo} />
 				<TodoTabs activeTab={activeTab} modActiveTab={modActiveTab} />
+				{/* Extract todo-list into its own component */}
 				<div className="todo-list">
-					{todos.map((todo) => (
-						<Todo
-							modTodo={modTodo}
-							removeTodo={removeTodo}
-							status={todo.status}
-							id={todo.id}
-							key={todo.id}
-							text={todo.text}
-						/>
-					))}
+					{activeTab === 'All'
+						? todos.map((todo) => (
+								<Todo
+									modTodo={modTodo}
+									removeTodo={removeTodo}
+									status={todo.status}
+									id={todo.id}
+									key={todo.id}
+									text={todo.text}
+								/>
+						  ))
+						: todos
+								.filter((todo) => todo.status === activeTab)
+								.map((todo) => (
+									<Todo
+										modTodo={modTodo}
+										removeTodo={removeTodo}
+										status={todo.status}
+										id={todo.id}
+										key={todo.id}
+										text={todo.text}
+									/>
+								))}
 				</div>
 			</div>
 		</>

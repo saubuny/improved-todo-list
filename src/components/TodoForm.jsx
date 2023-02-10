@@ -1,13 +1,12 @@
 import '../styles/TodoForm.scss';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 
 function TodoForm({ addTodo }) {
 	const [todoText, setTodoText] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addTodo({ id: uuidv4(), text: todoText, status: 'Not Started' });
+		addTodo(todoText);
 		setTodoText('');
 	};
 
@@ -20,7 +19,7 @@ function TodoForm({ addTodo }) {
 			<form onSubmit={handleSubmit} className="todo-form">
 				<div>
 					<label className="todo-form_label" htmlFor="todo_form_text">
-						Add Todo
+						To-Do List
 					</label>
 				</div>
 				<div>

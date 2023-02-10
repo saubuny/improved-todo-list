@@ -5,8 +5,3 @@ To view this page:
 - `npm i`
 - `npm run dev`
 
-
-Todos (for me):
-- Status for each todo
-- View todos by status
-  
