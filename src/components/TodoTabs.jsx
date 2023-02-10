@@ -7,7 +7,12 @@ function TodoTabs({ activeTab, modActiveTab }) {
 
 	const Tab = ({ tabName, active }) => {
 		return (
-			<button data-active={active} onClick={handleClick} className="todo-tab">
+			<button
+				// I really shouldn't hardcode css like this
+				style={active ? { backgroundColor: '#61afef' } : { backgroundColor: '' }}
+				onClick={handleClick}
+				className="todo-tab"
+			>
 				{tabName}
 			</button>
 		);
@@ -16,10 +21,22 @@ function TodoTabs({ activeTab, modActiveTab }) {
 	return (
 		<>
 			<div className="container">
-				<Tab onClick={handleClick} tabName={'All'} />
-				<Tab onClick={handleClick} tabName={'Not Started'} />
-				<Tab onClick={handleClick} tabName={'In Progress'} />
-				<Tab onClick={handleClick} tabName={'Complete'} />
+				<Tab onClick={handleClick} active={activeTab === 'All' ? true : false} tabName={'All'} />
+				<Tab
+					onClick={handleClick}
+					active={activeTab === 'Not Started' ? true : false}
+					tabName={'Not Started'}
+				/>
+				<Tab
+					onClick={handleClick}
+					active={activeTab === 'In Progress' ? true : false}
+					tabName={'In Progress'}
+				/>
+				<Tab
+					onClick={handleClick}
+					active={activeTab === 'Complete' ? true : false}
+					tabName={'Complete'}
+				/>
 			</div>
 		</>
 	);

@@ -1,15 +1,11 @@
 .todo-tab {
-	background-color: $secondary;
+	background-color: $dark;
 	border: none;
 	padding: 0.6rem;
 	color: $light;
 
-	&[data-active='true'] {
-		background-color: green;
-	}
-
 	&:hover {
-		background-color: adjust-color($color: $secondary, $lightness: -5%);
+		background-color: adjust-color($color: $dark, $lightness: 5%);
 	}
 }
 
