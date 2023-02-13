@@ -2,8 +2,12 @@ import './styles/App.scss';
 import { useEffect, useState } from 'react';
 import Todo from './components/Todo';
 import TodoForm from './components/TodoForm';
-import { v4 as uuidv4 } from 'uuid'; // REPLACE THIS !!!
+import { v4 as uuidv4 } from 'uuid';
 import TodoTabs from './components/TodoTabs';
+
+// TODO:
+// 	- Dropdown menu for status
+// 	- Extract todo list into its own component
 
 function App() {
 	// Handle Todos
@@ -32,9 +36,6 @@ function App() {
 	const modActiveTab = (tabName) => {
 		setActiveTab(tabName);
 	};
-
-	// Testing
-	useEffect(() => console.log(activeTab), [activeTab]);
 
 	return (
 		<>

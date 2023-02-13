@@ -6,7 +6,7 @@ function Todo({ text, modTodo, removeTodo, id, status }) {
 	};
 
 	const handleUpdate = (e) => {
-		modTodo(id, 'Complete');
+		modTodo(id, e.target.value);
 	};
 
 	return (
@@ -16,12 +16,14 @@ function Todo({ text, modTodo, removeTodo, id, status }) {
 					<p>{text}</p>
 				</span>
 				<span>
-					<button
-						onClick={handleUpdate}
+					<select
+						onChange={handleUpdate}
 						className={`todo-card_btn todo-card_${status.split(' ').join('').toLowerCase()}`}
 					>
-						{status}
-					</button>
+						<option value="Not Started">Not Started</option>
+						<option value="In Progress">In Progress</option>
+						<option value="Complete">Complete</option>
+					</select>
 					<button onClick={handleRemove} className="todo-card_btn todo-card_x ">
 						X
 					</button>
